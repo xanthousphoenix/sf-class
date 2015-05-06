@@ -15,5 +15,11 @@ public class Thing {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
+	@InvokeMe("one")
+	public String configureThis(String s) {
+		System.out.println("configureThis invoked with " + s);
+		return "You said " + s;
+	}
 
 }
