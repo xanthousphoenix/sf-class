@@ -12,7 +12,10 @@ public class Thing {
 	public String getAddress() {
 		return address;
 	}
+	
+	@InvokeMe("two")
 	public void setAddress(String address) {
+		System.out.println("setAddress invoked with " + address);
 		this.address = address;
 	}
 	

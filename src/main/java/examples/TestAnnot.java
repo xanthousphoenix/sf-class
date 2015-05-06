@@ -33,8 +33,12 @@ public class TestAnnot {
 			InvokeMe im = m.getAnnotation(InvokeMe.class);
 			if (im != null) {
 				Object rv = m.invoke(t, im.value() + " from invoke");
-				System.out.println("Result of invocation is " + rv
-						+ " which is a " + rv.getClass().getName());
+				if (rv != null) {
+					System.out.println("Result of invocation is " + rv
+							+ " which is a " + rv.getClass().getName());
+				} else {
+					System.out.println("returned null");
+				}
 			}
 		}
 	}
