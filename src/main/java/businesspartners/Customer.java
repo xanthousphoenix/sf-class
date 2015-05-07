@@ -49,21 +49,17 @@ public class Customer implements Addressable, Comparable<Customer>{
 		return this.getStreet().compareTo(o.getStreet());
 	}
 	
-	private static class CompareBySpend implements Comparator<Customer> {
-		@Override
-		public int compare(Customer o1, Customer o2) {
-			long diff = (o1.totalSpend - o2.totalSpend);
-			if (diff > 0) return 1;
-			if (diff < 0) return -1;
-			return 0;
-		}
+	public static Comparator<Customer> getSpendComparator() { // Note the parentheses here VVV
+		return new /* private static class CompareBySpend implements */ Comparator<Customer>() {
+			@Override
+			public int compare(Customer o1, Customer o2) {
+				long diff = (o1.totalSpend - o2.totalSpend);
+				if (diff > 0) return 1;
+				if (diff < 0) return -1;
+				return 0;
+			}
 
-	}
-	
-	private static final Comparator<Customer> spendComparator = new CompareBySpend();
-	
-	public static Comparator<Customer> getSpendComparator() {
-		return spendComparator;
+		}; // <---semicolon completes the return statement
 	}
 	
 }
