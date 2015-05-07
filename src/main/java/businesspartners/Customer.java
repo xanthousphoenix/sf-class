@@ -25,10 +25,11 @@ public class Customer implements Addressable, Comparable<Customer>{
 		return zip;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Customer [street=" + street + ", city=" + city + ", zip=" + zip
-				+ "]";
+				+ ", totalSpend=" + totalSpend + "]";
 	}
 
 	public Customer(String street, String city, int zip) {
@@ -47,7 +48,8 @@ public class Customer implements Addressable, Comparable<Customer>{
 	public int compareTo(Customer o) {
 		return this.getStreet().compareTo(o.getStreet());
 	}
-	public class CompareBySpend implements Comparator<Customer> {
+	
+	public static class CompareBySpend implements Comparator<Customer> {
 
 		@Override
 		public int compare(Customer o1, Customer o2) {

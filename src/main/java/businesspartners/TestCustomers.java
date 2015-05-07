@@ -11,9 +11,11 @@ public class TestCustomers {
 				new Customer("1 Market", "San Francisco", 94105, 34),
 				new Customer("37 Downtown Lane", "Hillsboro", 42971, 97)
 			);
-		System.out.println("Unsorted: " + lc);
+		System.out.println("     Unsorted: " + lc);
 		lc.sort(new CompareByZip());
-		System.out.println("  Sorted: " + lc);
+		System.out.println("Sorted by zip: " + lc);
+		lc.sort(new Customer.CompareBySpend());
+		System.out.println("Sorted by spend: " + lc);
 		
 	}
 
