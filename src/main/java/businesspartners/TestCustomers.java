@@ -14,7 +14,7 @@ public class TestCustomers {
 		System.out.println("     Unsorted: " + lc);
 		lc.sort(new CompareByZip());
 		System.out.println("Sorted by zip: " + lc);
-		lc.sort(new Customer.CompareBySpend());
+		lc.sort(Customer.getSpendComparator());
 		System.out.println("Sorted by spend: " + lc);
 		
 	}

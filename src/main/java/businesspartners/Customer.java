@@ -49,8 +49,7 @@ public class Customer implements Addressable, Comparable<Customer>{
 		return this.getStreet().compareTo(o.getStreet());
 	}
 	
-	public static class CompareBySpend implements Comparator<Customer> {
-
+	private static class CompareBySpend implements Comparator<Customer> {
 		@Override
 		public int compare(Customer o1, Customer o2) {
 			long diff = (o1.totalSpend - o2.totalSpend);
@@ -60,4 +59,11 @@ public class Customer implements Addressable, Comparable<Customer>{
 		}
 
 	}
+	
+	private static final Comparator<Customer> spendComparator = new CompareBySpend();
+	
+	public static Comparator<Customer> getSpendComparator() {
+		return spendComparator;
+	}
+	
 }
