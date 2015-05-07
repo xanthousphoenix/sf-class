@@ -1,11 +1,14 @@
 package businesspartners;
 
+import java.util.Comparator;
+
 import addresses.Addressable;
 
-public class Customer implements Addressable {
+public class Customer implements Addressable, Comparable<Customer>{
 	private String street;
 	private String city;
 	private int zip;
+	private long totalSpend;
 	
 	@Override
 	public String getStreet() {
@@ -33,5 +36,26 @@ public class Customer implements Addressable {
 		this.street = street;
 		this.city = city;
 		this.zip = zip;
+	}
+	
+	public Customer(String street, String city, int zip, long spend) {
+		this(street, city, zip);
+		totalSpend = spend;
+	}
+
+	@Override
+	public int compareTo(Customer o) {
+		return this.getStreet().compareTo(o.getStreet());
+	}
+	public class CompareBySpend implements Comparator<Customer> {
+
+		@Override
+		public int compare(Customer o1, Customer o2) {
+			long diff = (o1.totalSpend - o2.totalSpend);
+			if (diff > 0) return 1;
+			if (diff < 0) return -1;
+			return 0;
+		}
+
 	}
 }

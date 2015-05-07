@@ -7,9 +7,9 @@ public class TestCustomers {
 
 	public static void main(String[] args) {
 		List<Customer> lc = Arrays.asList(
-				new Customer("123 Acacia", "Warwick", 12345),
-				new Customer("1 Market", "San Francisco", 94105),
-				new Customer("37 Downtown Lane", "Hillsboro", 42971)
+				new Customer("123 Acacia", "Warwick", 12345, 123),
+				new Customer("1 Market", "San Francisco", 94105, 34),
+				new Customer("37 Downtown Lane", "Hillsboro", 42971, 97)
 			);
 		System.out.println("Unsorted: " + lc);
 		lc.sort(new CompareByZip());
